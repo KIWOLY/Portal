@@ -1,0 +1,20 @@
+import React from 'react'
+import Button from './Button'
+
+const Header = () => {
+    return (
+        <div>
+            <nav className='flex item-center justify-between pt-5 pb-6   '>
+                <a href="" className='text-3xl font-bold ps-20'> Portal</a>
+                <div className='flex px-10 gap-2'>
+                    <Button text="Login"  bg="bg-darkgray2"/>
+                    <Button text="Sign Up"  bg="bg-darkgray2" />
+                </div>
+
+
+            </nav>
+        </div>
+    )
+}
+
+export default Header

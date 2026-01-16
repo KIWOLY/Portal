@@ -1,12 +1,19 @@
 import React from "react"
+import Header from "./components/Header"
+import Main from "./components/Main"
+import Footer from "./components/Footer"
 
 
 function App() {
   return (
-    <><div className="min-h-screen bg-black flex items-center justify-center">
-    <h1 className="text-2xl font-bold text-blue-500"> Hellow Tailwind </h1>
+    <>
+    <div className="min-h-screen bg-darkgray text-white ">
+        <Header/>
+        <Main/>
+        <Footer/>
+
     </div>
-      
+  
 
 
     </>
