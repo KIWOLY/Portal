@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from "axios"
 
 
+
 const Register = () => {
 
   const [formData, setFormData] = useState({
@@ -21,7 +22,7 @@ const Register = () => {
     e.preventDefault()
 
 
-   setLoading(true)
+    setLoading(true)
     const userData = {
       username: formData.username,
       email: formData.email,
