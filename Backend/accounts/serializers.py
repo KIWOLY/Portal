@@ -11,6 +11,11 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = [ 'username', 'email' , 'password']
 
+    def validate_email(self, value):
+        if User.objects.filter(email=value).exists():
+            raise serializers.ValidationError("Email is already in use.")
+        return value
+
     def create(self, validated_data):
         # if you use create_user, the password will be hashed
         # if you use create, the password will be stored as plain text
