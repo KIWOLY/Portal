@@ -52,6 +52,7 @@ const Register = () => {
 
 
   return (
+    <>
     <div className='text-center bg-darkgray2 mx-96  mt-16 p-8'>
       <h1 className='text-2xl font-bold'>Create an Account</h1>
       <form action="" onSubmit={handleRegistration}>
@@ -84,6 +85,7 @@ const Register = () => {
 
 
     </div>
+    </>
   )
 }
 
