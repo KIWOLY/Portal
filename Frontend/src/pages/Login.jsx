@@ -10,6 +10,7 @@ const Login = () => {
     password: ''
   })
   const [loading, setLoading] = useState(false)
+  const [error , setError] = useState("")
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -32,13 +33,13 @@ const Login = () => {
       localStorage.setItem('accessToken' ,response.data.access)
       localStorage.setItem('refreshToken' ,response.data.refresh)
       console.log("Login Successfull");
+      setError("")
       navigate('/');
-
-
 
     }
     catch(error) {
       console.log("invalid credentilas");
+      setError("Invalind Credential")
      }
     finally{
       setLoading(false)
@@ -52,10 +53,11 @@ const Login = () => {
   return (
     <>
       <div className='text-center bg-darkgray2 mx-96  mt-16 p-8'>
-        <h1 className='text-2xl font-bold'>Login to our portal</h1>
-        <form action="" onSubmit={handlelogin}>
-          <div className='mx-28 py-3'>
+        <h1 className='text-2xl font-bold mb-5'>Login to our portal</h1>
 
+        <form action="" onSubmit={handlelogin}>
+          <div className='mx-28 '>
+            <small> <div className='text-red-800 text-xl mb-3'>{error}</div></small>
             <input className='w-full rounded-md p-3 text-black ' type="text" name='username' value={formData.username} placeholder='Enter your username' onChange={handleChange} /><br />
 
           </div>
