@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useContext ,useState } from 'react'
 import axios from "axios"
 import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../AuthProvider'
 
 const Login = () => {
 
@@ -11,6 +12,7 @@ const Login = () => {
   })
   const [loading, setLoading] = useState(false)
   const [error , setError] = useState("")
+  const {isLoggedIn , setIsLoggedIn} = useContext(AuthContext)
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -33,6 +35,7 @@ const Login = () => {
       localStorage.setItem('accessToken' ,response.data.access)
       localStorage.setItem('refreshToken' ,response.data.refresh)
       console.log("Login Successfull");
+      setIsLoggedIn(true)
       setError("")
       navigate('/');
 
