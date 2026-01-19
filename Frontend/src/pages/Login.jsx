@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from "axios"
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
 
@@ -9,6 +10,7 @@ const Login = () => {
     password: ''
   })
   const [loading, setLoading] = useState(false)
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -27,7 +29,10 @@ const Login = () => {
 
     try {
       const response = await axios.post('http://127.0.0.1:8000/api/v1/token/', userData)
-      console.log(response.data);
+      localStorage.setItem('accessToken' ,response.data.access)
+      localStorage.setItem('refreshToken' ,response.data.refresh)
+      console.log("Login Successfull");
+      navigate('/');
 
 
 
