@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from "axios"
 
 const Login = () => {
 
@@ -13,7 +14,7 @@ const Login = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handlelogin = (e) => {
+  const handlelogin = async (e) => {
     e.preventDefault();
 
     const userData = {
@@ -24,8 +25,19 @@ const Login = () => {
     console.log("userdata ===> :", userData);
     setLoading(true)
 
-    try { }
-    catch { }
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/api/v1/token/', userData)
+      console.log(response.data);
+
+
+
+    }
+    catch(error) {
+      console.log("invalid credentilas");
+     }
+    finally{
+      setLoading(false)
+    }
 
   }
 
