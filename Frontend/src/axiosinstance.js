@@ -42,15 +42,20 @@ axiosInstance.interceptors.response.use(
             originalRequest.retry = true;
             const refreshToken = localStorage.getItem('refreshToken')
             try {
-                const response = await axiosInstance.post('/token/refresh/', { refresh: refreshToken })
+                const response = await axios.post(`${baseURL}token/refresh/`, { refresh: refreshToken })
                 localStorage.setItem('accessToken', response.data.access)
+                console.log(response.data.access);
                 originalRequest.headers['Authorization'] = `Bearer ${response.data.access}`
                 return axiosInstance(originalRequest)
 
 
             }
             catch (error) {
-                return false
+                localStorage.removeItem("accessToken")
+                localStorage.removeItem("refreshToken")
+                window.location.href = "/login"
+
+
             }
 
         }
