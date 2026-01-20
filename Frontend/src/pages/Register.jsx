@@ -53,21 +53,21 @@ const Register = () => {
 
   return (
     <>
-    <div className='text-center bg-darkgray2 mx-96  mt-16 p-8'>
+    <div className='text-center bg-darkgray2 max-w-md mx-auto mt-16 p-8'>
       <h1 className='text-2xl font-bold'>Create an Account</h1>
       <form action="" onSubmit={handleRegistration}>
-        <div className='mx-28 py-3'>
+        <div className=' py-3'>
 
           <input className='w-full rounded-md p-3 text-black ' type="text" name='username' value={formData.username} placeholder='Enter your username' onChange={handleChange} /><br />
           <small>{errorMessage.username && <div className='text-red-800 bg-darkgray text-lg'>{errorMessage.username}</div>}</small>
         </div>
-        <div className='mx-28 py-3'>
+        <div className=' py-3'>
 
           <input className='w-full rounded-md p-3 text-black' type="email" name='email' value={formData.email} placeholder='Enter your email' onChange={handleChange} />
           <small>{errorMessage.email && <div className='text-red-800 bg-darkgray  text-lg'>{errorMessage.email}</div>}</small>
 
         </div>
-        <div className='mx-28 py-3'>
+        <div className=' py-3'>
 
           <input className='w-full rounded-md p-3 text-black ' type="password" name='password' value={formData.password} placeholder='enter your pasword' onChange={handleChange} />
           <small>{errorMessage.password && <div className='text-red-800 bg-darkgray text-lg'>{errorMessage.password}</div>}</small>
