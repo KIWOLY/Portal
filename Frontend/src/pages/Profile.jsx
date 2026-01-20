@@ -3,17 +3,13 @@ import axios from "axios"
 import axiosInstance from '../axiosinstance'
 
 const Profile = () => {
-  const accessToken =localStorage.getItem("accessToken")
-  console.log(accessToken);
+
 
   useEffect(() => {
     const fetch = async () => {
       try {
 
-        const response = await axiosInstance.get('profile/' ,   { headers :{
-            Authorization :`Bearer ${accessToken}`
-          }}
-        )
+        const response = await axiosInstance.get('profile/' )
         console.log(response.data);
 
       }
