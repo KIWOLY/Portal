@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react'
-import axios from "axios"
+import React, { useEffect, useState } from 'react'
 import axiosInstance from '../axiosinstance'
 
 const Profile = () => {
+  const [response, setResponse] = useState("")
 
 
   useEffect(() => {
-    const fetch = async () => {
+    const fetchProfile = async () => {
       try {
 
-        const response = await axiosInstance.get('profile/' )
+        const response = await axiosInstance.get('profile/')
+        setResponse(response.data)
         console.log(response.data);
 
       }
@@ -20,13 +21,13 @@ const Profile = () => {
       }
 
     }
-    fetch();
+    fetchProfile();
 
 
   }, [])
 
   return (
-    <div>Profile</div>
+    <div className='text-center text-2xl max-w-md mx-auto'>Profile : {response.message}</div>
   )
 }
 

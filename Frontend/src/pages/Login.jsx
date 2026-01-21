@@ -37,7 +37,7 @@ const Login = () => {
       console.log("Login Successfull");
       setIsLoggedIn(true)
       setError("")
-      navigate('/');
+      navigate('/profile');
 
     }
     catch(error) {
