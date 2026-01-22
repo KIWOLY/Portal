@@ -155,10 +155,7 @@ If you are interested in implementing or enhancing the **Machine Learning compon
 
 
 
-##  Author
 
-**Innocent Kiwoly**
-Full‑Stack Developer
 
 
 
